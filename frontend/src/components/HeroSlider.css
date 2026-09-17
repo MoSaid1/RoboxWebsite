@@ -30,10 +30,10 @@
   z-index: 0;
   background-image: repeating-linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.4) 0px,
-    rgba(255, 255, 255, 0.4) 2px,
+    rgba(255, 255, 255, 0.22) 0px,
+    rgba(255, 255, 255, 0.22) 2px,
     transparent 2px,
-    transparent 14px
+    transparent 28px
   );
   mix-blend-mode: screen;
   mask-image: radial-gradient(ellipse 100% 65% at 50% 0%, black 0%, transparent 85%);
@@ -43,10 +43,10 @@
 :root[data-theme="light"] .hero-bg-grid {
   background-image: repeating-linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.22) 0px,
-    rgba(0, 0, 0, 0.22) 2px,
+    rgba(0, 0, 0, 0.12) 0px,
+    rgba(0, 0, 0, 0.12) 2px,
     transparent 2px,
-    transparent 14px
+    transparent 28px
   );
   mix-blend-mode: normal;
 }
