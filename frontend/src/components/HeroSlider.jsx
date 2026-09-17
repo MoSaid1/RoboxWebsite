@@ -5,17 +5,30 @@ import { HERO_SLIDES } from "../data/company.js";
 import ImagePlaceholder from "./ImagePlaceholder.jsx";
 import "./HeroSlider.css";
 
+const EXIT_DURATION = 450;
+
 export default function HeroSlider() {
   const [index, setIndex] = useState(0);
+  const [exitingIndex, setExitingIndex] = useState(null);
   const timerRef = useRef(null);
+  const exitTimerRef = useRef(null);
   const navigate = useNavigate();
 
-  const go = (i) => setIndex((i + HERO_SLIDES.length) % HERO_SLIDES.length);
+  const go = (i) => {
+    const next = (i + HERO_SLIDES.length) % HERO_SLIDES.length;
+    if (next === index) return;
+    setExitingIndex(index);
+    setIndex(next);
+    clearTimeout(exitTimerRef.current);
+    exitTimerRef.current = setTimeout(() => setExitingIndex(null), EXIT_DURATION);
+  };
 
   useEffect(() => {
     timerRef.current = setInterval(() => go(index + 1), 6000);
     return () => clearInterval(timerRef.current);
   }, [index]);
+
+  useEffect(() => () => clearTimeout(exitTimerRef.current), []);
 
   return (
     <section className="hero-slider">
@@ -23,7 +36,10 @@ export default function HeroSlider() {
       <div className="hero-bg-grid" />
       <div className="container hero-content">
         {HERO_SLIDES.map((slide, i) => (
-          <div key={i} className={`hero-slide ${i === index ? "active" : ""}`}>
+          <div
+            key={i}
+            className={`hero-slide ${i === index ? "active" : i === exitingIndex ? "exiting" : ""}`}
+          >
             <div className="hero-text">
               <span className="eyebrow">Robox Industries · Robotics &amp; Automation</span>
               <h1>
