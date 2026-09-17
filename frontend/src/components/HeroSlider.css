@@ -53,7 +53,36 @@
   align-items: center;
   position: relative;
   z-index: 2;
-  animation: heroContentIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-slide.active .hero-text > *,
+.hero-slide.active .hero-visual {
+  opacity: 0;
+  animation: heroContentIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-slide.active .hero-text .eyebrow {
+  animation-delay: 0s;
+}
+
+.hero-slide.active .hero-text h1 {
+  animation-delay: 0.05s;
+}
+
+.hero-slide.active .hero-visual {
+  animation-delay: 0.05s;
+}
+
+.hero-slide.active .hero-text h2 {
+  animation-delay: 0.1s;
+}
+
+.hero-slide.active .hero-text p {
+  animation-delay: 0.15s;
+}
+
+.hero-slide.active .hero-text .hero-buttons {
+  animation-delay: 0.2s;
 }
 
 .hero-slide.exiting {
