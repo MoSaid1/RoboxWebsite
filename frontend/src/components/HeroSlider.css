@@ -13,13 +13,13 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: radial-gradient(ellipse 60% 65% at 32% 18%, rgba(237, 28, 36, 0.4), transparent 70%),
+  background: radial-gradient(ellipse 100% 60% at 50% 0%, rgba(237, 28, 36, 0.45), transparent 70%),
     radial-gradient(ellipse 900px 600px at 15% 10%, var(--hero-glow), transparent 60%),
     radial-gradient(ellipse 800px 600px at 100% 100%, rgba(237, 28, 36, 0.08), transparent 60%);
 }
 
 :root[data-theme="light"] .hero-bg {
-  background: radial-gradient(ellipse 60% 65% at 32% 18%, rgba(237, 28, 36, 0.12), transparent 70%),
+  background: radial-gradient(ellipse 100% 60% at 50% 0%, rgba(237, 28, 36, 0.14), transparent 70%),
     radial-gradient(ellipse 900px 600px at 15% 10%, var(--hero-glow), transparent 60%),
     radial-gradient(ellipse 800px 600px at 100% 100%, rgba(237, 28, 36, 0.05), transparent 60%);
 }
@@ -36,8 +36,8 @@
     transparent 14px
   );
   mix-blend-mode: screen;
-  mask-image: radial-gradient(ellipse 62% 68% at 32% 18%, black 0%, transparent 85%);
-  -webkit-mask-image: radial-gradient(ellipse 62% 68% at 32% 18%, black 0%, transparent 85%);
+  mask-image: radial-gradient(ellipse 100% 65% at 50% 0%, black 0%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 65% at 50% 0%, black 0%, transparent 85%);
 }
 
 :root[data-theme="light"] .hero-bg-grid {
