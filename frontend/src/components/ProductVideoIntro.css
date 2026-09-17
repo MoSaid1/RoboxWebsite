@@ -51,8 +51,11 @@
 .product-video-intro-content {
   position: relative;
   z-index: 1;
-  padding: 0 24px 100px;
-  max-width: 720px;
+  padding: 0 56px 100px;
+}
+
+.product-video-intro-content > * {
+  max-width: 620px;
 }
 
 .product-video-intro-eyebrow {
@@ -89,6 +92,31 @@
   animation-delay: 0.32s;
 }
 
+.product-video-intro-actions {
+  position: absolute;
+  right: 56px;
+  bottom: 100px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+  opacity: 0;
+  animation: videoIntroIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.48s;
+}
+
+.product-video-intro-actions .btn-ghost {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.product-video-intro-actions .btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: #fff;
+}
+
 @keyframes videoIntroIn {
   0% {
     opacity: 0;
@@ -105,7 +133,8 @@
 @media (prefers-reduced-motion: reduce) {
   .product-video-intro-eyebrow,
   .product-video-intro-title,
-  .product-video-intro-subtitle {
+  .product-video-intro-subtitle,
+  .product-video-intro-actions {
     animation: none;
     opacity: 1;
   }
@@ -167,7 +196,21 @@
 }
 
 @media (max-width: 720px) {
+  .product-video-intro {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-end;
+  }
+
   .product-video-intro-content {
-    padding-bottom: 120px;
+    padding-bottom: 24px;
+  }
+
+  .product-video-intro-actions {
+    position: static;
+    flex-direction: row;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin: 24px 24px 100px;
   }
 }

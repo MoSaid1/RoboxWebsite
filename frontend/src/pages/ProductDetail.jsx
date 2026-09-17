@@ -60,7 +60,7 @@ export default function ProductDetail() {
     <div className="page product-detail">
       <Seo title={product.name} description={product.short_description} />
 
-      {story?.videoIntro && <ProductVideoIntro data={story.videoIntro} />}
+      {story?.videoIntro && <ProductVideoIntro data={story.videoIntro} product={product} />}
 
       <div className="container breadcrumb">
         <button onClick={() => navigate(-1)} className="breadcrumb-back">
@@ -91,60 +91,63 @@ export default function ProductDetail() {
       </nav>
 
       <section className="product-hero" id="overview">
-        <div className="container product-hero-text">
-          <Reveal>
-            <span className="badge">{product.category}</span>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1>{product.name}</h1>
-          </Reveal>
-          <Reveal delay={140}>
-            <p className="product-short">{product.short_description}</p>
-          </Reveal>
-          {story?.hook && (
-            <Reveal delay={190}>
-              <p className="product-hook">{story.hook}</p>
+        <div className="container product-hero-inner">
+          <div className="product-hero-text">
+            <Reveal>
+              <span className="badge">{product.category}</span>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1>{product.name}</h1>
+            </Reveal>
+            <Reveal delay={140}>
+              <p className="product-short">{product.short_description}</p>
+            </Reveal>
+            {story?.hook && (
+              <Reveal delay={190}>
+                <p className="product-hook">{story.hook}</p>
+              </Reveal>
+            )}
+            {!story?.videoIntro && (
+              <Reveal delay={260} className="product-actions">
+                <Link to={`/contact?product=${product.slug}`} className="btn btn-primary">
+                  Request a Quote <FaArrowRight size={13} />
+                </Link>
+                {product.pdf_file && (
+                  <a href={product.pdf_file} target="_blank" rel="noreferrer" className="btn btn-ghost">
+                    <FaFilePdf /> Download Datasheet
+                  </a>
+                )}
+              </Reveal>
+            )}
+          </div>
+
+          {story ? (
+            <Reveal delay={200} className="product-hero-visual story-hero-visual">
+              <ScrollParallax speed={0.1} scaleFrom={0.93}>
+                <HotspotImage placeholder={story.hero.placeholder} hotspots={story.hero.hotspots} alt={product.name} />
+              </ScrollParallax>
+            </Reveal>
+          ) : (
+            <Reveal delay={200} className="product-hero-visual">
+              <div className="product-gallery-main">
+                <img src={gallery[activePhoto]} alt={product.name} />
+              </div>
+              {gallery.length > 1 && (
+                <div className="product-gallery-thumbs">
+                  {gallery.map((src, i) => (
+                    <button
+                      key={i}
+                      className={`product-thumb ${i === activePhoto ? "active" : ""}`}
+                      onClick={() => setActivePhoto(i)}
+                    >
+                      <img src={src} alt={`${product.name} ${i + 1}`} />
+                    </button>
+                  ))}
+                </div>
+              )}
             </Reveal>
           )}
         </div>
-
-        {story ? (
-          <Reveal delay={200} className="product-hero-visual story-hero-visual">
-            <ScrollParallax speed={0.1} scaleFrom={0.93}>
-              <HotspotImage placeholder={story.hero.placeholder} hotspots={story.hero.hotspots} alt={product.name} />
-            </ScrollParallax>
-          </Reveal>
-        ) : (
-          <Reveal delay={200} className="product-hero-visual">
-            <div className="product-gallery-main">
-              <img src={gallery[activePhoto]} alt={product.name} />
-            </div>
-            {gallery.length > 1 && (
-              <div className="product-gallery-thumbs">
-                {gallery.map((src, i) => (
-                  <button
-                    key={i}
-                    className={`product-thumb ${i === activePhoto ? "active" : ""}`}
-                    onClick={() => setActivePhoto(i)}
-                  >
-                    <img src={src} alt={`${product.name} ${i + 1}`} />
-                  </button>
-                ))}
-              </div>
-            )}
-          </Reveal>
-        )}
-
-        <Reveal delay={260} className="product-actions">
-          <Link to={`/contact?product=${product.slug}`} className="btn btn-primary">
-            Request a Quote <FaArrowRight size={13} />
-          </Link>
-          {product.pdf_file && (
-            <a href={product.pdf_file} target="_blank" rel="noreferrer" className="btn btn-ghost">
-              <FaFilePdf /> Download Datasheet
-            </a>
-          )}
-        </Reveal>
       </section>
 
       {story?.stats && (

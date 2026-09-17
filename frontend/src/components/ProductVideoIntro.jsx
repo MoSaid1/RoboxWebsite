@@ -1,7 +1,8 @@
-import { FaVideo } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaVideo, FaArrowRight, FaFilePdf } from "react-icons/fa";
 import "./ProductVideoIntro.css";
 
-export default function ProductVideoIntro({ data }) {
+export default function ProductVideoIntro({ data, product }) {
   return (
     <section className="product-video-intro">
       <div className="product-video-intro-media">
@@ -24,10 +25,21 @@ export default function ProductVideoIntro({ data }) {
         <div className="product-video-intro-overlay" />
       </div>
 
-      <div className="container product-video-intro-content">
+      <div className="product-video-intro-content">
         <span className="product-video-intro-eyebrow">{data.eyebrow}</span>
         <h1 className="product-video-intro-title">{data.title}</h1>
         <p className="product-video-intro-subtitle">{data.subtitle}</p>
+      </div>
+
+      <div className="product-video-intro-actions">
+        <Link to={`/contact?product=${product.slug}`} className="btn btn-primary">
+          Request a Quote <FaArrowRight size={13} />
+        </Link>
+        {product.pdf_file && (
+          <a href={product.pdf_file} target="_blank" rel="noreferrer" className="btn btn-ghost">
+            <FaFilePdf /> Download Datasheet
+          </a>
+        )}
       </div>
 
       <div className="product-video-intro-scroll">
