@@ -1,3 +1,9 @@
+.stats-section-home {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin: 0 0 88px;
+}
+
 .section-head {
   margin-bottom: 56px;
 }
@@ -120,23 +126,24 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 18px 22px;
+  padding: 16px 22px;
   font-weight: 600;
   font-size: 16px;
-  position: relative;
-  padding-left: 44px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 }
 
-.why-list li::before {
-  content: "";
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
+.why-list-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  flex-shrink: 0;
+  background: rgba(237, 28, 36, 0.12);
+  color: var(--accent);
 }
 
 .partners-section .section-head {

@@ -1,10 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaTruck, FaBullhorn, FaConciergeBell, FaGraduationCap, FaArrowRight } from "react-icons/fa";
+import {
+  FaTruck,
+  FaBullhorn,
+  FaConciergeBell,
+  FaGraduationCap,
+  FaArrowRight,
+  FaBullseye,
+  FaExpandArrowsAlt,
+  FaShieldAlt,
+  FaCoins,
+  FaInfinity,
+} from "react-icons/fa";
 import Seo from "../components/Seo.jsx";
 import HeroSlider from "../components/HeroSlider.jsx";
 import ProductCard from "../components/ProductCard.jsx";
 import PartnersMarquee from "../components/PartnersMarquee.jsx";
+import Reveal from "../components/Reveal.jsx";
+import ScrollParallax from "../components/ScrollParallax.jsx";
+import StatRow from "../components/StatCounter.jsx";
 import { Loading, ErrorMessage } from "../components/StateMessage.jsx";
 import { getProducts, getPartners, getBlogs } from "../lib/api.js";
 import { OUR_STORY, COMPANY_PAGE, NAV_CATEGORIES } from "../data/company.js";
@@ -15,6 +29,14 @@ const CATEGORY_ICONS = {
   advertising: FaBullhorn,
   service: FaConciergeBell,
   educational: FaGraduationCap,
+};
+
+const WHY_ICONS = {
+  Precise: FaBullseye,
+  Scalable: FaExpandArrowsAlt,
+  Safe: FaShieldAlt,
+  "Cost-effective": FaCoins,
+  "Built for long-term performance": FaInfinity,
 };
 
 export default function Home() {
@@ -29,6 +51,13 @@ export default function Home() {
     getBlogs().then(setBlogs).catch(() => {});
   }, []);
 
+  const stats = [
+    { value: products?.length || 10, label: "Robots in the Lineup" },
+    { value: NAV_CATEGORIES.length, label: "Product Categories" },
+    { value: partners?.length || 11, label: "Partners & Clients" },
+    { value: 100, suffix: "%", label: "Designed & Assembled In-House" },
+  ];
+
   return (
     <div className="page">
       <Seo
@@ -38,34 +67,38 @@ export default function Home() {
 
       <HeroSlider />
 
+      <Reveal as="section" className="section stats-section-home">
+        <StatRow stats={stats} />
+      </Reveal>
+
       <section className="section">
         <div className="container story-block">
-          <div>
+          <Reveal>
             <span className="eyebrow">{OUR_STORY.title}</span>
             <h2 className="section-title">Engineering the machines that power tomorrow's businesses.</h2>
-          </div>
-          <div className="story-text">
+          </Reveal>
+          <Reveal delay={100} className="story-text">
             {OUR_STORY.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
             <Link to="/company" className="btn btn-ghost btn-sm story-link">
               Learn About Us <FaArrowRight size={12} />
             </Link>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="section categories-section">
         <div className="container">
-          <div className="section-head">
+          <Reveal className="section-head">
             <span className="eyebrow">What We Build</span>
             <h2 className="section-title">Four categories. One engineering standard.</h2>
-          </div>
+          </Reveal>
           <div className="categories-grid">
-            {NAV_CATEGORIES.map((c) => {
+            {NAV_CATEGORIES.map((c, i) => {
               const Icon = CATEGORY_ICONS[c.key];
               return (
-                <Link key={c.key} to={`/products?category=${c.key}`} className="category-card">
+                <Reveal key={c.key} delay={i * 80} as={Link} className="category-card" to={`/products?category=${c.key}`}>
                   <div className="category-icon">
                     <Icon size={22} />
                   </div>
@@ -73,7 +106,7 @@ export default function Home() {
                   <span className="category-link">
                     Explore <FaArrowRight size={11} />
                   </span>
-                </Link>
+                </Reveal>
               );
             })}
           </div>
@@ -82,7 +115,7 @@ export default function Home() {
 
       <section className="section">
         <div className="container">
-          <div className="section-head split">
+          <Reveal className="section-head split">
             <div>
               <span className="eyebrow">Our Robots</span>
               <h2 className="section-title">Featured Products</h2>
@@ -90,14 +123,16 @@ export default function Home() {
             <Link to="/products" className="btn btn-ghost btn-sm">
               View All Products <FaArrowRight size={12} />
             </Link>
-          </div>
+          </Reveal>
 
           {!products && !error && <Loading label="Loading products..." />}
           {error && <ErrorMessage message="Could not load products right now." />}
           {products && (
             <div className="products-grid">
-              {products.slice(0, 4).map((p) => (
-                <ProductCard key={p.id} product={p} />
+              {products.slice(0, 4).map((p, i) => (
+                <Reveal key={p.id} delay={i * 80}>
+                  <ProductCard product={p} />
+                </Reveal>
               ))}
             </div>
           )}
@@ -106,18 +141,28 @@ export default function Home() {
 
       <section className="section why-section">
         <div className="container why-grid">
-          <div>
+          <Reveal>
             <span className="eyebrow">{COMPANY_PAGE.whyChoose.title}</span>
             <h2 className="section-title">{COMPANY_PAGE.whyChoose.intro}</h2>
             <p className="section-description">{COMPANY_PAGE.whyChoose.lead}</p>
             <Link to="/company" className="btn btn-primary story-link">
               Discover Our Company
             </Link>
-          </div>
+          </Reveal>
           <ul className="why-list">
-            {COMPANY_PAGE.whyChoose.list.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
+            {COMPANY_PAGE.whyChoose.list.map((item, i) => {
+              const Icon = WHY_ICONS[item];
+              return (
+                <Reveal key={item} as="li" delay={i * 70}>
+                  {Icon && (
+                    <span className="why-list-icon">
+                      <Icon size={15} />
+                    </span>
+                  )}
+                  {item}
+                </Reveal>
+              );
+            })}
           </ul>
         </div>
       </section>
@@ -125,10 +170,10 @@ export default function Home() {
       {partners?.length > 0 && (
         <section className="section partners-section">
           <div className="container">
-            <div className="section-head center">
+            <Reveal className="section-head center">
               <span className="eyebrow">Trusted By</span>
               <h2 className="section-title">Partners &amp; Clients</h2>
-            </div>
+            </Reveal>
           </div>
           <PartnersMarquee partners={partners} />
         </section>
@@ -137,7 +182,7 @@ export default function Home() {
       {blogs?.length > 0 && (
         <section className="section">
           <div className="container">
-            <div className="section-head split">
+            <Reveal className="section-head split">
               <div>
                 <span className="eyebrow">Latest News</span>
                 <h2 className="section-title">From the Blog</h2>
@@ -145,18 +190,18 @@ export default function Home() {
               <Link to="/blogs" className="btn btn-ghost btn-sm">
                 View All Posts <FaArrowRight size={12} />
               </Link>
-            </div>
+            </Reveal>
             <div className="blog-teaser-grid">
-              {blogs.slice(0, 2).map((b) => (
-                <Link to={`/blogs/${b.slug}`} key={b.id} className="blog-teaser-card">
-                  <div className="blog-teaser-image">
+              {blogs.slice(0, 2).map((b, i) => (
+                <Reveal key={b.id} delay={i * 100} as={Link} to={`/blogs/${b.slug}`} className="blog-teaser-card">
+                  <ScrollParallax speed={0.06} className="blog-teaser-image">
                     <img src={b.photo} alt={b.title} loading="lazy" />
-                  </div>
+                  </ScrollParallax>
                   <div className="blog-teaser-body">
                     <h3>{b.title}</h3>
                     <p>{b.excerpt}</p>
                   </div>
-                </Link>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -164,7 +209,7 @@ export default function Home() {
       )}
 
       <section className="section cta-section">
-        <div className="container cta-box">
+        <Reveal as="div" className="container cta-box">
           <h2 className="section-title">{COMPANY_PAGE.cta.title}</h2>
           <p>{COMPANY_PAGE.cta.subtitle}</p>
           <div className="cta-buttons">
@@ -175,7 +220,7 @@ export default function Home() {
               Contact Us
             </Link>
           </div>
-        </div>
+        </Reveal>
       </section>
     </div>
   );
