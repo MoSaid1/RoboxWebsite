@@ -91,6 +91,8 @@
 
 .stat-item.has-icon .stat-label {
   font-size: 12.5px;
+  line-height: 1.4;
+  max-width: 110px;
 }
 
 .stat-value {
