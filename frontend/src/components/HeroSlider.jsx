@@ -46,6 +46,7 @@ export default function HeroSlider() {
 
             <div className="hero-visual">
               <div className="hero-visual-glow" />
+              <img key={index} src="/RoboxMark.svg" className="hero-mark" alt="" aria-hidden="true" />
               <div className="hero-visual-frame">
                 <ImagePlaceholder label={slide.visual.label} ratio={slide.visual.ratio} />
               </div>

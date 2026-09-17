@@ -121,6 +121,44 @@
   width: 100%;
 }
 
+.hero-mark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 78%;
+  max-width: 340px;
+  z-index: 0;
+  pointer-events: none;
+  animation: heroMarkIn 1.1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroMarkIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0.4) rotate(-35deg);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(-50%, -50%) scale(1.08) rotate(8deg);
+    opacity: 0.85;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(0.92) rotate(-3deg);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.82) rotate(0deg);
+    opacity: 0.14;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-mark {
+    animation: none;
+    opacity: 0.14;
+    transform: translate(-50%, -50%) scale(0.82);
+  }
+}
+
 .hero-chip {
   position: absolute;
   z-index: 2;
