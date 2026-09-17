@@ -329,8 +329,8 @@ function CompareTable({ compare }) {
       <Reveal delay={80} className="compare-table">
         <div className="compare-row compare-head">
           <span></span>
-          <span>This Model</span>
-          <span>GuideBot Pro</span>
+          <span>{compare.aLabel || "This Model"}</span>
+          <span>{compare.bLabel || compare.linkLabel}</span>
         </div>
         {compare.rows.map((row) => (
           <div className="compare-row" key={row.label}>
