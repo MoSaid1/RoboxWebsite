@@ -49,8 +49,10 @@ import {
   FaWeightHanging,
   FaWifi,
 } from "react-icons/fa";
+import ScreenIcon from "../components/icons/ScreenIcon.jsx";
 
 const ICONS = {
+  IconScreen: ScreenIcon,
   FaAd,
   FaAudioDescription,
   FaBatteryFull,
