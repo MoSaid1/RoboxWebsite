@@ -20,7 +20,7 @@ export const PRODUCT_STORIES = {
       title: "The First Face Your Guests Meet",
       subtitle:
         "An autonomous host that greets, guides, and never clocks out — running the floor while your team focuses on the guests who need them most.",
-      videoLabel: "Background video — GuideBot greeting guests in a hotel lobby, looping, 16:9",
+      video: "/GuideBotIntro.mp4",
     },
 
     hook: "The first face your guests meet — and the smartest one on the team.",

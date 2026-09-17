@@ -10,7 +10,7 @@ export default function ProductVideoIntro({ data }) {
             className="product-video-intro-video"
             autoPlay
             muted
-            loop
+            loop={!!data.loop}
             playsInline
             poster={data.poster}
             src={data.video}
