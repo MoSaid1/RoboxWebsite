@@ -46,7 +46,6 @@ export default function HeroSlider() {
 
             <div className="hero-visual">
               <div className="hero-visual-glow" />
-              <img key={index} src="/RoboxMark.svg" className="hero-mark" alt="" aria-hidden="true" />
               <div className="hero-visual-frame">
                 <ImagePlaceholder label={slide.visual.label} ratio={slide.visual.ratio} />
               </div>
@@ -59,6 +58,8 @@ export default function HeroSlider() {
             </div>
           </div>
         ))}
+
+        <img key={index} src="/RoboxMark.svg" className="hero-transition-mark" alt="" aria-hidden="true" />
 
         <div className="hero-side-nav">
           <button className="hero-nav-arrow" aria-label="Previous slide" onClick={() => go(index - 1)}>
