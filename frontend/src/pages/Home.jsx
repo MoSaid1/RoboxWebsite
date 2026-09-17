@@ -19,6 +19,7 @@ import PartnersMarquee from "../components/PartnersMarquee.jsx";
 import Reveal from "../components/Reveal.jsx";
 import ScrollParallax from "../components/ScrollParallax.jsx";
 import StatRow from "../components/StatCounter.jsx";
+import StackedCardsCarousel from "../components/StackedCardsCarousel.jsx";
 import { Loading, ErrorMessage } from "../components/StateMessage.jsx";
 import { getProducts, getPartners, getBlogs } from "../lib/api.js";
 import { OUR_STORY, COMPANY_PAGE, NAV_CATEGORIES } from "../data/company.js";
@@ -138,6 +139,28 @@ export default function Home() {
           )}
         </div>
       </section>
+
+      {products?.length > 0 && (
+        <section className="section lineup-section">
+          <div className="container">
+            <Reveal className="section-head center">
+              <span className="eyebrow">The Full Lineup</span>
+              <h2 className="section-title">Meet Every Robot We Build</h2>
+            </Reveal>
+          </div>
+          <StackedCardsCarousel
+            ariaLabel="Robox product lineup"
+            cards={products.map((p) => ({
+              id: p.id,
+              title: p.name,
+              subtitle: p.category,
+              description: p.short_description,
+              image: p.thumbnail,
+              to: `/products/${p.slug}`,
+            }))}
+          />
+        </section>
+      )}
 
       <section className="section why-section">
         <div className="container why-grid">

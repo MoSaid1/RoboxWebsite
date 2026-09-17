@@ -1,0 +1,146 @@
+.scc-root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  outline: none;
+  padding: 110px 0 20px;
+}
+
+@media (max-width: 560px) {
+  .scc-root {
+    padding: 70px 0 16px;
+  }
+}
+
+.scc-stack {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  height: 260px;
+  touch-action: none;
+  user-select: none;
+}
+
+.scc-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 48px var(--shadow-color-strong);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  cursor: grab;
+  will-change: transform, opacity;
+}
+
+.scc-card:active {
+  cursor: grabbing;
+}
+
+.scc-card-image {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--image-bg);
+}
+
+.scc-card-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.scc-card-body {
+  flex: 0 0 auto;
+  padding: 16px 22px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.scc-card-subtitle {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.scc-card-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.scc-card-description {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.scc-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 110px;
+}
+
+@media (max-width: 560px) {
+  .scc-dots {
+    margin-top: 76px;
+  }
+}
+
+.scc-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.scc-dot:hover {
+  background: var(--text-muted);
+}
+
+.scc-dot.active {
+  width: 24px;
+  border-radius: 6px;
+  background: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scc-card {
+    transition: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .scc-stack {
+    max-width: 360px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scc-stack {
+    max-width: calc(100vw - 40px);
+    height: 220px;
+  }
+
+  .scc-card-description {
+    -webkit-line-clamp: 1;
+  }
+}
