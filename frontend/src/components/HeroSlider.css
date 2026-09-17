@@ -58,7 +58,7 @@
 .hero-slide.active .hero-text > *,
 .hero-slide.active .hero-visual {
   opacity: 0;
-  animation: heroContentIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: heroContentIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-slide.active .hero-text .eyebrow {
@@ -66,23 +66,23 @@
 }
 
 .hero-slide.active .hero-text h1 {
-  animation-delay: 0.05s;
+  animation-delay: 0.16s;
 }
 
 .hero-slide.active .hero-visual {
-  animation-delay: 0.05s;
+  animation-delay: 0.16s;
 }
 
 .hero-slide.active .hero-text h2 {
-  animation-delay: 0.1s;
+  animation-delay: 0.32s;
 }
 
 .hero-slide.active .hero-text p {
-  animation-delay: 0.15s;
+  animation-delay: 0.48s;
 }
 
 .hero-slide.active .hero-text .hero-buttons {
-  animation-delay: 0.2s;
+  animation-delay: 0.64s;
 }
 
 .hero-slide.exiting {
