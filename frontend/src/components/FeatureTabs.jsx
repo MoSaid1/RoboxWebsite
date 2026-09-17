@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ImagePlaceholder from "./ImagePlaceholder.jsx";
+import ScrollParallax from "./ScrollParallax.jsx";
 import "./FeatureTabs.css";
 
 export default function FeatureTabs({ tabs }) {
@@ -25,13 +26,13 @@ export default function FeatureTabs({ tabs }) {
       </div>
 
       <div className="feature-tabs-panel" key={active}>
-        <div className="feature-tabs-image">
+        <ScrollParallax speed={0.06} className="feature-tabs-image">
           {current.image ? (
             <img src={current.image} alt={current.title} />
           ) : (
             <ImagePlaceholder {...current.placeholder} ratio={current.placeholder?.ratio || "4 / 3"} />
           )}
-        </div>
+        </ScrollParallax>
         <p className="feature-tabs-body">{current.text}</p>
       </div>
     </div>

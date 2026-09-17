@@ -13,6 +13,7 @@ import HotspotImage from "../components/HotspotImage.jsx";
 import StatRow from "../components/StatCounter.jsx";
 import FeatureTabs from "../components/FeatureTabs.jsx";
 import ScrollProgress from "../components/ScrollProgress.jsx";
+import ScrollParallax from "../components/ScrollParallax.jsx";
 import "./ProductDetail.css";
 
 export default function ProductDetail() {
@@ -103,7 +104,9 @@ export default function ProductDetail() {
 
         {story ? (
           <Reveal delay={200} className="product-hero-visual story-hero-visual">
-            <HotspotImage placeholder={story.hero.placeholder} hotspots={story.hero.hotspots} alt={product.name} />
+            <ScrollParallax speed={0.1} scaleFrom={0.93}>
+              <HotspotImage placeholder={story.hero.placeholder} hotspots={story.hero.hotspots} alt={product.name} />
+            </ScrollParallax>
           </Reveal>
         ) : (
           <Reveal delay={200} className="product-hero-visual">
@@ -144,11 +147,23 @@ export default function ProductDetail() {
         </Reveal>
       )}
 
-      <Reveal as="section" className="section product-description-section">
+      <section className="section product-description-section">
         <div className="container product-description-wrap">
-          <p className="product-description">{product.description}</p>
+          <ScrollParallax scaleFrom={0.94}>
+            <p className="product-description">{product.description}</p>
+          </ScrollParallax>
         </div>
-      </Reveal>
+      </section>
+
+      {story?.philosophy && (
+        <section className="section philosophy-section">
+          <div className="container philosophy-wrap">
+            <ScrollParallax scaleFrom={0.92}>
+              <p className="philosophy-text">{story.philosophy}</p>
+            </ScrollParallax>
+          </div>
+        </section>
+      )}
 
       {embed && (
         <Reveal as="section" className="section video-section">
@@ -238,6 +253,7 @@ export default function ProductDetail() {
                 Explore More Products
               </Link>
             </div>
+            {story?.credibility && <p className="credibility-line">{story.credibility}</p>}
           </Reveal>
         </section>
       )}
@@ -318,7 +334,9 @@ function UseCasesChapter({ useCases }) {
 
       {useCases.placeholder && (
         <Reveal className="use-cases-image" delay={80}>
-          <ImagePlaceholder {...useCases.placeholder} ratio={useCases.placeholder.ratio || "21 / 9"} />
+          <ScrollParallax speed={0.08}>
+            <ImagePlaceholder {...useCases.placeholder} ratio={useCases.placeholder.ratio || "21 / 9"} />
+          </ScrollParallax>
         </Reveal>
       )}
 

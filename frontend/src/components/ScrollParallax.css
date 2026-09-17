@@ -1,0 +1,9 @@
+.scroll-parallax {
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-parallax {
+    transform: none !important;
+  }
+}

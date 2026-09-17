@@ -7,6 +7,9 @@ export const PRODUCT_STORIES = {
   guidebot: {
     hook: "The first face your guests meet — and the smartest one on the team.",
 
+    philosophy:
+      "Every decision — from the shape of its face to the sound of its voice — was made to answer one question: how do you make a machine feel like part of the team, not just another screen in the lobby?",
+
     hero: {
       placeholder: { label: "Hero shot — GuideBot, front-facing studio render, 1:1", ratio: "1 / 1" },
       hotspots: [
@@ -45,6 +48,13 @@ export const PRODUCT_STORIES = {
         text:
           "Powered by ROS and a fusion of onboard sensors, GuideBot finds its way across marble, tile, low-pile carpet, cement, and wood without missing a step.\n\nIt threads through aisles as narrow as 80 cm at a controlled, safety-adjustable pace of up to 1.0 m/s — confident indoors, considerate around people.",
       },
+      {
+        title: "Built for a Full Day's Work",
+        summary: "9-hour shifts, one overnight charge.",
+        placeholder: { label: "Detail shot — charging dock overnight", ratio: "4 / 3" },
+        text:
+          "GuideBot runs a full shift on a single overnight charge — nine hours of continuous operation, plugged in after closing and ready before the doors open.\n\nAt 80 kg, it's substantial enough to feel stable on the floor, yet light enough to reposition without special equipment. Wi-Fi keeps it synced with your systems, and an optional LTE connection keeps it online even if the in-house network goes down.",
+      },
     ],
 
     compare: {
@@ -59,6 +69,9 @@ export const PRODUCT_STORIES = {
       linkTo: "/products/guidebot-pro",
       linkLabel: "See GuideBot Pro",
     },
+
+    credibility:
+      "GuideBot is designed, engineered, and assembled by Robox Industries — built for the local market, supported locally, and continuously improved.",
 
     useCases: {
       title: "Everywhere a Guest Needs Guidance",
