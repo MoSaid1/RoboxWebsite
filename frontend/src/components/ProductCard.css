@@ -11,13 +11,13 @@
 .product-card:hover {
   transform: translateY(-6px);
   border-color: var(--border-strong);
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 24px 48px var(--shadow-color-strong);
 }
 
 .product-card-image {
   position: relative;
   aspect-ratio: 4 / 3;
-  background: #050505;
+  background: var(--image-bg);
   overflow: hidden;
 }
 

@@ -8,7 +8,10 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer-grid">
         <div className="footer-about">
-          <img src="/Logo-white.png" alt="Robox Industries" className="footer-logo" />
+          <div className="footer-logo">
+            <img src="/LogoIcon.png" alt="" />
+            <span>Robox</span>
+          </div>
           <p>
             Robox Industries designs, manufactures, and assembles advanced robotic solutions — delivery, advertising,
             service, and educational robots built for the future of automation.

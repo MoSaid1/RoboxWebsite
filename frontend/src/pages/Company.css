@@ -135,7 +135,7 @@
 .value-card:hover {
   transform: translateY(-6px);
   border-color: var(--border-strong);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 20px 40px var(--shadow-color);
 }
 
 .value-icon {

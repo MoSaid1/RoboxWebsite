@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { FaBars, FaTimes, FaChevronDown, FaArrowRight } from "react-icons/fa";
 import { NAV_CATEGORIES } from "../data/company.js";
 import { getProducts } from "../lib/api.js";
+import ThemeToggle from "./ThemeToggle.jsx";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -54,7 +55,8 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="container navbar-inner">
         <Link to="/" className="navbar-brand" onClick={() => setOpen(false)}>
-          <img src="/Logo-white.png" alt="Robox Industries" />
+          <img src="/LogoIcon.png" alt="" />
+          <span>Robox</span>
         </Link>
 
         <nav className="navbar-links">
@@ -114,11 +116,13 @@ export default function Navbar() {
         </nav>
 
         <div className="navbar-cta">
+          <ThemeToggle />
           <button className="btn btn-primary btn-sm" onClick={() => goTo("/contact")}>
             Get in Touch
           </button>
         </div>
 
+        <ThemeToggle className="navbar-burger-theme-toggle" />
         <button className="navbar-burger" onClick={() => setOpen((v) => !v)} aria-label="Menu">
           {open ? <FaTimes size={22} /> : <FaBars size={22} />}
         </button>

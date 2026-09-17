@@ -12,8 +12,23 @@
 }
 
 .footer-logo {
-  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   margin-bottom: 18px;
+}
+
+.footer-logo img {
+  height: 30px;
+  width: 30px;
+}
+
+.footer-logo span {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--text);
+  letter-spacing: -0.01em;
 }
 
 .footer-about p {
@@ -34,7 +49,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--overlay-soft);
   border: 1px solid var(--border);
   color: var(--text-muted);
   transition: all 0.2s ease;

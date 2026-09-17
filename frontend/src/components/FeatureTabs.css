@@ -28,7 +28,7 @@
 }
 
 .feature-tab:hover {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--overlay-soft);
 }
 
 .feature-tab.active {

@@ -2,10 +2,11 @@
   width: 100%;
   border-radius: var(--radius);
   border: 1.5px dashed var(--border-strong);
-  background: repeating-linear-gradient(
+  background-color: var(--bg-elevated);
+  background-image: repeating-linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.02) 10px,
+    var(--overlay-soft),
+    var(--overlay-soft) 10px,
     transparent 10px,
     transparent 20px
   );
