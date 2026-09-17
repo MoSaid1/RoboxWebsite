@@ -194,12 +194,26 @@ export default function Home() {
             <div className="blog-teaser-grid">
               {blogs.slice(0, 2).map((b, i) => (
                 <Reveal key={b.id} delay={i * 100} as={Link} to={`/blogs/${b.slug}`} className="blog-teaser-card">
-                  <ScrollParallax speed={0.06} className="blog-teaser-image">
-                    <img src={b.photo} alt={b.title} loading="lazy" />
-                  </ScrollParallax>
+                  <div className="blog-teaser-image">
+                    <ScrollParallax speed={0.06}>
+                      <img src={b.photo} alt={b.title} loading="lazy" />
+                    </ScrollParallax>
+                    {b.created_at && (
+                      <span className="blog-teaser-date">
+                        {new Date(b.created_at).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
+                      </span>
+                    )}
+                  </div>
                   <div className="blog-teaser-body">
                     <h3>{b.title}</h3>
                     <p>{b.excerpt}</p>
+                    <span className="blog-teaser-link">
+                      Read Article <FaArrowRight size={12} />
+                    </span>
                   </div>
                 </Reveal>
               ))}

@@ -152,52 +152,103 @@
 .blog-teaser-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 28px;
 }
 
 .blog-teaser-card {
-  display: grid;
-  grid-template-columns: 220px 1fr;
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .blog-teaser-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--border-strong);
+  box-shadow: 0 24px 48px var(--shadow-color-strong);
 }
 
 .blog-teaser-image {
-  aspect-ratio: 1;
+  position: relative;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
+  background: var(--image-bg);
+}
+
+.blog-teaser-image .scroll-parallax {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .blog-teaser-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-teaser-card:hover .blog-teaser-image img {
+  transform: scale(1.06);
+}
+
+.blog-teaser-date {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 6px 12px;
+  border-radius: 980px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .blog-teaser-body {
-  padding: 20px;
+  padding: 24px 26px 28px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  flex: 1;
 }
 
 .blog-teaser-body h3 {
-  font-size: 17px;
+  font-size: 19px;
+  line-height: 1.3;
 }
 
 .blog-teaser-body p {
-  font-size: 14px;
+  font-size: 14.5px;
+  color: var(--text-muted);
+  flex: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.blog-teaser-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.blog-teaser-link svg {
+  transition: transform 0.25s ease;
+}
+
+.blog-teaser-card:hover .blog-teaser-link svg {
+  transform: translateX(4px);
 }
 
 .cta-section {
@@ -244,9 +295,6 @@
 @media (max-width: 560px) {
   .categories-grid,
   .products-grid {
-    grid-template-columns: 1fr;
-  }
-  .blog-teaser-card {
     grid-template-columns: 1fr;
   }
   .cta-box {
