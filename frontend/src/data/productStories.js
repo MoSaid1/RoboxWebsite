@@ -38,10 +38,10 @@ export const PRODUCT_STORIES = {
     },
 
     stats: [
-      { value: 9, suffix: "h", label: "Continuous runtime" },
-      { value: 22, suffix: "\"", label: "HD interactive touchscreen" },
-      { value: 2, suffix: "", label: "Native languages — EN / AR" },
-      { value: 80, suffix: "kg", label: "Total operating weight" },
+      { value: 9, suffix: "h", label: "Continuous runtime", icon: "FaClock" },
+      { value: 22, suffix: "\"", label: "HD interactive touchscreen", icon: "FaAudioDescription" },
+      { value: 2, suffix: "", label: "Native languages — EN / AR", icon: "FaComments" },
+      { value: 80, suffix: "kg", label: "Total operating weight", icon: "FaWeightHanging" },
     ],
 
     view360: STANDARD_360,

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { SpecIcon } from "../lib/icons.jsx";
 import "./StatCounter.css";
 
 function useCountUp(target, active, duration = 1400) {
@@ -47,18 +48,26 @@ export default function StatRow({ stats }) {
 
   return (
     <div ref={ref} className="stat-row">
-      {stats.map((s) => (
-        <StatItem key={s.label} stat={s} active={active} />
+      {stats.map((s, i) => (
+        <StatItem key={s.label} stat={s} active={active} index={i} />
       ))}
     </div>
   );
 }
 
-function StatItem({ stat, active }) {
+function StatItem({ stat, active, index }) {
   const value = useCountUp(stat.value, active);
   const decimals = stat.decimals || 0;
   return (
     <div className="stat-item">
+      {stat.icon && (
+        <div
+          className={`stat-icon ${active ? "in" : ""}`}
+          style={{ transitionDelay: `${index * 90}ms` }}
+        >
+          <SpecIcon name={stat.icon} size={28} />
+        </div>
+      )}
       <div className="stat-value">
         {stat.prefix}
         {value.toFixed(decimals)}
