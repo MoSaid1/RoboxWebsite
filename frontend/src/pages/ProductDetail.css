@@ -89,6 +89,69 @@
   color: var(--text);
 }
 
+@media (min-width: 901px) {
+  .product-detail .container:not(.product-subnav-inner) {
+    padding-right: 250px;
+  }
+
+  .product-subnav {
+    position: fixed;
+    top: 50%;
+    right: 28px;
+    transform: translateY(-50%);
+    z-index: 40;
+    width: 196px;
+    margin-top: 0;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 24px 60px var(--shadow-color-strong);
+  }
+
+  .product-subnav-inner {
+    max-width: none;
+    margin: 0;
+    padding: 18px;
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+  }
+
+  .product-subnav-name {
+    padding: 0 10px 12px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .product-subnav-links {
+    flex-direction: column;
+    gap: 2px;
+    margin: 0;
+    overflow: visible;
+  }
+
+  .product-subnav-links a {
+    padding: 9px 10px;
+    border-radius: 10px;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .product-subnav-links a:hover {
+    background: var(--overlay-hover);
+    color: var(--text);
+  }
+
+  .product-subnav-cta {
+    width: 100%;
+    margin: 10px 0 0;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 /* Hero */
 .product-hero {
   padding: 72px 24px 0;
