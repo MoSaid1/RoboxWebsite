@@ -65,7 +65,7 @@ function StatItem({ stat, active, index }) {
           className={`stat-icon ${active ? "in" : ""}`}
           style={{ transitionDelay: `${index * 90}ms` }}
         >
-          <SpecIcon name={stat.icon} size={30} />
+          <SpecIcon name={stat.icon} size={44} />
         </div>
       )}
       <div className="stat-text">

@@ -43,8 +43,6 @@
 .stat-icon {
   position: relative;
   flex-shrink: 0;
-  width: 56px;
-  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,6 +78,11 @@
 
 .stat-item.has-icon .stat-text {
   align-items: flex-start;
+  gap: 6px;
+}
+
+.stat-item.has-icon .stat-divider {
+  display: none;
 }
 
 .stat-value {
