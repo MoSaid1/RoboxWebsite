@@ -42,21 +42,16 @@
 
 .stat-icon {
   position: relative;
-  width: 64px;
-  height: 64px;
-  border-radius: 18px;
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  background: linear-gradient(150deg, rgba(237, 28, 36, 0.22), rgba(237, 28, 36, 0.05));
-  border: 1px solid rgba(237, 28, 36, 0.2);
-  box-shadow: 0 8px 20px rgba(237, 28, 36, 0.16);
   color: var(--accent);
   opacity: 0;
   transform: scale(0.4) rotate(-20deg);
-  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
-    box-shadow 0.3s ease;
+  transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .stat-icon.in {
@@ -66,7 +61,25 @@
 
 .stat-item:hover .stat-icon {
   transform: scale(1.08) rotate(-4deg);
-  box-shadow: 0 12px 26px rgba(237, 28, 36, 0.26);
+}
+
+.stat-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-item.has-icon {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 18px;
+  padding: 26px 24px;
+}
+
+.stat-item.has-icon .stat-text {
+  align-items: flex-start;
 }
 
 .stat-value {

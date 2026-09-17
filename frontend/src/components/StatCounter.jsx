@@ -59,22 +59,24 @@ function StatItem({ stat, active, index }) {
   const value = useCountUp(stat.value, active);
   const decimals = stat.decimals || 0;
   return (
-    <div className="stat-item">
+    <div className={`stat-item ${stat.icon ? "has-icon" : ""}`}>
       {stat.icon && (
         <div
           className={`stat-icon ${active ? "in" : ""}`}
           style={{ transitionDelay: `${index * 90}ms` }}
         >
-          <SpecIcon name={stat.icon} size={28} />
+          <SpecIcon name={stat.icon} size={30} />
         </div>
       )}
-      <div className="stat-value">
-        {stat.prefix}
-        {value.toFixed(decimals)}
-        {stat.suffix}
+      <div className="stat-text">
+        <div className="stat-value">
+          {stat.prefix}
+          {value.toFixed(decimals)}
+          {stat.suffix}
+        </div>
+        <div className="stat-divider" />
+        <div className="stat-label">{stat.label}</div>
       </div>
-      <div className="stat-divider" />
-      <div className="stat-label">{stat.label}</div>
     </div>
   );
 }
