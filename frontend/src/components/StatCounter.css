@@ -72,17 +72,25 @@
   align-items: center;
   justify-content: flex-start;
   text-align: left;
-  gap: 18px;
-  padding: 26px 24px;
+  gap: 14px;
+  padding: 22px 20px;
 }
 
 .stat-item.has-icon .stat-text {
   align-items: flex-start;
-  gap: 6px;
+  gap: 5px;
 }
 
 .stat-item.has-icon .stat-divider {
   display: none;
+}
+
+.stat-item.has-icon .stat-value {
+  font-size: clamp(28px, 3.2vw, 34px);
+}
+
+.stat-item.has-icon .stat-label {
+  font-size: 12.5px;
 }
 
 .stat-value {
