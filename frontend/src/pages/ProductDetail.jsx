@@ -9,6 +9,7 @@ import { getProduct } from "../lib/api.js";
 import { toYoutubeEmbed } from "../lib/youtube.js";
 import { PRODUCT_STORIES } from "../data/productStories.js";
 import ImagePlaceholder from "../components/ImagePlaceholder.jsx";
+import ProductVideoIntro from "../components/ProductVideoIntro.jsx";
 import HotspotImage from "../components/HotspotImage.jsx";
 import StatRow from "../components/StatCounter.jsx";
 import FeatureTabs from "../components/FeatureTabs.jsx";
@@ -58,6 +59,8 @@ export default function ProductDetail() {
   return (
     <div className="page product-detail">
       <Seo title={product.name} description={product.short_description} />
+
+      {story?.videoIntro && <ProductVideoIntro data={story.videoIntro} />}
 
       <div className="container breadcrumb">
         <button onClick={() => navigate(-1)} className="breadcrumb-back">
