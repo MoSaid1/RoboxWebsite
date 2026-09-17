@@ -1,0 +1,23 @@
+.lang-icon-note {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: langIconNotePulse 1.8s ease-in-out infinite;
+}
+
+@keyframes langIconNotePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0.65;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-icon-note {
+    animation: none;
+  }
+}

@@ -50,9 +50,11 @@ import {
   FaWifi,
 } from "react-icons/fa";
 import ScreenIcon from "../components/icons/ScreenIcon.jsx";
+import LanguagesIcon from "../components/icons/LanguagesIcon.jsx";
 
 const ICONS = {
   IconScreen: ScreenIcon,
+  IconLanguages: LanguagesIcon,
   FaAd,
   FaAudioDescription,
   FaBatteryFull,
