@@ -11,6 +11,10 @@ import {
   FaShieldAlt,
   FaCoins,
   FaInfinity,
+  FaRobot,
+  FaLayerGroup,
+  FaHandshake,
+  FaIndustry,
 } from "react-icons/fa";
 import Seo from "../components/Seo.jsx";
 import HeroSlider from "../components/HeroSlider.jsx";
@@ -52,10 +56,10 @@ export default function Home() {
   }, []);
 
   const stats = [
-    { value: products?.length || 10, label: "Robots in the Lineup" },
-    { value: NAV_CATEGORIES.length, label: "Product Categories" },
-    { value: partners?.length || 11, label: "Partners & Clients" },
-    { value: 100, suffix: "%", label: "Designed & Assembled In-House" },
+    { value: products?.length || 10, label: "Robots in the Lineup", icon: FaRobot },
+    { value: NAV_CATEGORIES.length, label: "Product Categories", icon: FaLayerGroup },
+    { value: partners?.length || 11, label: "Partners & Clients", icon: FaHandshake },
+    { value: 100, suffix: "%", label: "Designed & Assembled In-House", icon: FaIndustry },
   ];
 
   return (

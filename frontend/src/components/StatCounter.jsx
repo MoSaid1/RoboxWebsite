@@ -57,8 +57,14 @@ export default function StatRow({ stats }) {
 function StatItem({ stat, active }) {
   const value = useCountUp(stat.value, active);
   const decimals = stat.decimals || 0;
+  const Icon = stat.icon;
   return (
     <div className="stat-item">
+      {Icon && (
+        <div className="stat-icon">
+          <Icon />
+        </div>
+      )}
       <div className="stat-value">
         {stat.prefix}
         {value.toFixed(decimals)}

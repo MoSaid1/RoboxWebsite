@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaChevronUp, FaChevronDown } from "react-icons/fa";
 import { HERO_SLIDES } from "../data/company.js";
 import ImagePlaceholder from "./ImagePlaceholder.jsx";
 import "./HeroSlider.css";
@@ -58,30 +58,31 @@ export default function HeroSlider() {
             </div>
           </div>
         ))}
+
+        <div className="hero-side-nav">
+          <button className="hero-nav-arrow" aria-label="Previous slide" onClick={() => go(index - 1)}>
+            <FaChevronUp />
+          </button>
+          <div className="hero-nav-dots">
+            {HERO_SLIDES.map((_, i) => (
+              <button
+                key={i}
+                className={`hero-nav-dot ${i === index ? "active" : ""}`}
+                onClick={() => go(i)}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
+          <button className="hero-nav-arrow" aria-label="Next slide" onClick={() => go(index + 1)}>
+            <FaChevronDown />
+          </button>
+        </div>
       </div>
 
       <div className="hero-footer-row">
         <div className="hero-scroll-cue">
           <span>Scroll</span>
           <div className="hero-scroll-cue-icon" />
-        </div>
-        <div className="hero-controls">
-          <button aria-label="Previous slide" onClick={() => go(index - 1)}>
-            <FaChevronLeft />
-          </button>
-          <div className="hero-dots">
-            {HERO_SLIDES.map((_, i) => (
-              <button
-                key={i}
-                className={`hero-dot ${i === index ? "active" : ""}`}
-                onClick={() => go(i)}
-                aria-label={`Go to slide ${i + 1}`}
-              />
-            ))}
-          </div>
-          <button aria-label="Next slide" onClick={() => go(index + 1)}>
-            <FaChevronRight />
-          </button>
         </div>
       </div>
     </section>
