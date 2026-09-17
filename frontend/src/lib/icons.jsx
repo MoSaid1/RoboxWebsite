@@ -51,10 +51,12 @@ import {
 } from "react-icons/fa";
 import ScreenIcon from "../components/icons/ScreenIcon.jsx";
 import LanguagesIcon from "../components/icons/LanguagesIcon.jsx";
+import RuntimeIcon from "../components/icons/RuntimeIcon.jsx";
 
 const ICONS = {
   IconScreen: ScreenIcon,
   IconLanguages: LanguagesIcon,
+  IconRuntime: RuntimeIcon,
   FaAd,
   FaAudioDescription,
   FaBatteryFull,

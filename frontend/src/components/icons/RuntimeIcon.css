@@ -1,0 +1,19 @@
+.runtime-icon-hands {
+  transform-origin: 137px 177px;
+  animation: runtimeIconSpin 3s linear infinite;
+}
+
+@keyframes runtimeIconSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .runtime-icon-hands {
+    animation: none;
+  }
+}
