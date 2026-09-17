@@ -66,15 +66,23 @@
 }
 
 .bento-card-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 11px;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(237, 28, 36, 0.12);
+  background: linear-gradient(150deg, rgba(237, 28, 36, 0.2), rgba(237, 28, 36, 0.05));
+  border: 1px solid rgba(237, 28, 36, 0.18);
+  box-shadow: 0 6px 16px rgba(237, 28, 36, 0.14);
   color: var(--accent);
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.bento-card:hover .bento-card-icon {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 10px 22px rgba(237, 28, 36, 0.24);
 }
 
 .bento-card-body h4 {
@@ -83,6 +91,12 @@
 
 .bento-large .bento-card-body h4 {
   font-size: 22px;
+}
+
+.bento-large .bento-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
 }
 
 .bento-card-body p {

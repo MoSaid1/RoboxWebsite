@@ -477,15 +477,23 @@
 }
 
 .use-case-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(237, 28, 36, 0.12);
+  background: linear-gradient(150deg, rgba(237, 28, 36, 0.2), rgba(237, 28, 36, 0.05));
+  border: 1px solid rgba(237, 28, 36, 0.18);
+  box-shadow: 0 6px 16px rgba(237, 28, 36, 0.14);
   color: var(--accent);
   margin-bottom: 18px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.use-case-card:hover .use-case-icon {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 10px 22px rgba(237, 28, 36, 0.24);
 }
 
 .use-case-card h4 {
@@ -533,18 +541,33 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 18px 20px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.spec-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--border-strong);
+  box-shadow: 0 14px 28px var(--shadow-color);
 }
 
 .spec-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(237, 28, 36, 0.12);
+  background: linear-gradient(150deg, rgba(237, 28, 36, 0.2), rgba(237, 28, 36, 0.05));
+  border: 1px solid rgba(237, 28, 36, 0.18);
+  box-shadow: 0 6px 16px rgba(237, 28, 36, 0.14);
   color: var(--accent);
   flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.spec-card:hover .spec-icon {
+  transform: scale(1.08) rotate(-4deg);
+  box-shadow: 0 10px 22px rgba(237, 28, 36, 0.24);
 }
 
 .spec-card > div:last-child {
