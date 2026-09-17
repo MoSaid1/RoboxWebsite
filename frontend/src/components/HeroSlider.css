@@ -53,7 +53,7 @@
   align-items: center;
   position: relative;
   z-index: 2;
-  animation: heroContentIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: heroContentIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .hero-slide.exiting {
@@ -64,7 +64,7 @@
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  animation: heroContentOut 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: heroContentOut 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes heroContentIn {
@@ -167,7 +167,7 @@
   width: min(58vw, 460px);
   z-index: 6;
   pointer-events: none;
-  animation: heroMarkSweep 0.55s linear both;
+  animation: heroMarkSweep 0.5s linear both;
 }
 
 @keyframes heroMarkSweep {

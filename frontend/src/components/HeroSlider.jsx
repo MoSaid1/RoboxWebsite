@@ -5,7 +5,7 @@ import { HERO_SLIDES } from "../data/company.js";
 import ImagePlaceholder from "./ImagePlaceholder.jsx";
 import "./HeroSlider.css";
 
-const EXIT_DURATION = 450;
+const EXIT_DURATION = 220;
 
 export default function HeroSlider() {
   const [index, setIndex] = useState(0);
