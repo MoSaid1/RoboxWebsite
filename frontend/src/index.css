@@ -168,6 +168,13 @@ ul {
   transform: translateY(0);
 }
 
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 .btn-ghost {
   background: rgba(255, 255, 255, 0.02);
   color: var(--text);
