@@ -85,11 +85,7 @@ export default function ProductDetail() {
             {product.specifications?.length > 0 && <a href="#specs">Tech Specs</a>}
           </div>
           <Link to={`/contact?product=${product.slug}`} className="btn btn-primary btn-sm product-subnav-cta">
-            <span>
-              Request a
-              <br />
-              Quote
-            </span>
+            Request a Quote
           </Link>
         </div>
       </nav>
