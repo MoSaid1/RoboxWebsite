@@ -31,6 +31,8 @@ export const HERO_SLIDES = [
       { text: "Our Company", to: "/company" },
       { text: "Contact Us", to: "/contact" },
     ],
+    visual: { label: "Hero visual — flagship robot, studio shot", ratio: "1 / 1" },
+    chips: ["10+ Robot Models", "500+ Deployments"],
   },
   {
     title: "Innovative",
@@ -42,6 +44,8 @@ export const HERO_SLIDES = [
       { text: "Our Products", to: "/products" },
       { text: "Contact Us", to: "/contact" },
     ],
+    visual: { label: "Hero visual — robotic arm on a smart factory line", ratio: "1 / 1" },
+    chips: ["Custom Integration", "Full-Scale Automation"],
   },
   {
     title: "Advanced",
@@ -53,6 +57,8 @@ export const HERO_SLIDES = [
       { text: "Show More", to: "/products?category=advertising" },
       { text: "Request Adbot", to: "/contact?category=advertising" },
     ],
+    visual: { label: "Hero visual — Adbot advertising robot in a mall atrium", ratio: "1 / 1" },
+    chips: ["Interactive Ads", "Mall & Exhibition Ready"],
   },
   {
     title: "Precision",
@@ -64,6 +70,8 @@ export const HERO_SLIDES = [
       { text: "Show More", to: "/products?category=delivery" },
       { text: "Request a Demo", to: "/contact?category=delivery" },
     ],
+    visual: { label: "Hero visual — delivery robot in a hotel lobby", ratio: "1 / 1" },
+    chips: ["Contactless Delivery", "24/7 Operation"],
   },
 ];
 
