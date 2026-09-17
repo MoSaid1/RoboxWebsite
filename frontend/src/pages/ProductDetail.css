@@ -529,31 +529,32 @@
 
 .specs-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
 .spec-card {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 14px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  padding: 18px 20px;
+  padding: 22px 20px;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .spec-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
   border-color: var(--border-strong);
-  box-shadow: 0 14px 28px var(--shadow-color);
+  box-shadow: 0 16px 32px var(--shadow-color);
 }
 
 .spec-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -573,18 +574,28 @@
 .spec-card > div:last-child {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 5px;
 }
 
 .spec-name {
-  font-size: 13px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--text-faint);
 }
 
 .spec-detail {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text);
+  line-height: 1.35;
+}
+
+@media (max-width: 1100px) {
+  .specs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
@@ -613,7 +624,11 @@
 
 @media (max-width: 560px) {
   .specs-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .spec-card {
+    padding: 16px 14px;
   }
   .product-subnav-links a {
     font-size: 12.5px;
