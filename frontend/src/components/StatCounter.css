@@ -67,13 +67,20 @@
   align-items: center;
 }
 
+.stat-row.has-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .stat-item.has-icon {
+  flex: 0 0 auto;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   text-align: left;
-  gap: 14px;
-  padding: 22px 20px;
+  gap: 12px;
+  padding: 14px 16px;
 }
 
 .stat-item.has-icon .stat-text {

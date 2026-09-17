@@ -46,8 +46,10 @@ export default function StatRow({ stats }) {
     return () => observer.disconnect();
   }, []);
 
+  const hasIcons = stats.some((s) => s.icon);
+
   return (
-    <div ref={ref} className="stat-row">
+    <div ref={ref} className={`stat-row ${hasIcons ? "has-icons" : ""}`}>
       {stats.map((s, i) => (
         <StatItem key={s.label} stat={s} active={active} index={i} />
       ))}
