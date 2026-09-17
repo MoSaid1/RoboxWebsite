@@ -1,0 +1,123 @@
+.hero-slider {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #000;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(ellipse 900px 500px at 20% 0%, rgba(255, 255, 255, 0.06), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 100%, rgba(237, 28, 36, 0.08), transparent 60%);
+}
+
+.hero-content {
+  position: relative;
+  padding: 60px 24px 120px;
+  min-height: 380px;
+}
+
+.hero-slide {
+  display: none;
+  max-width: 780px;
+}
+
+.hero-slide.active {
+  display: block;
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero-slide h1 {
+  font-size: clamp(40px, 6.4vw, 72px);
+  font-weight: 700;
+  margin-top: 8px;
+  letter-spacing: -0.03em;
+}
+
+.hero-slide h2 {
+  font-size: clamp(19px, 2.4vw, 25px);
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 16px;
+  letter-spacing: -0.005em;
+}
+
+.hero-slide p {
+  margin-top: 22px;
+  font-size: 17px;
+  max-width: 600px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 14px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.hero-controls {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.hero-controls button {
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.hero-controls > button:hover {
+  border-color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.hero-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.hero-dot.active {
+  width: 24px;
+  border-radius: 6px;
+  background: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .hero-slider {
+    min-height: auto;
+    padding-top: 24px;
+  }
+  .hero-content {
+    padding-bottom: 100px;
+  }
+}

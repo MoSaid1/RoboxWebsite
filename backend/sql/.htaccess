@@ -1,0 +1,4 @@
+# Safety net: if this folder ever ends up inside a publicly served directory,
+# block all access to it. The .sql files should only be used via phpMyAdmin import,
+# never uploaded to a web-accessible folder.
+Require all denied

@@ -1,0 +1,30 @@
+.img-placeholder {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1.5px dashed var(--border-strong);
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.02) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--text-faint);
+  text-align: center;
+  padding: 24px;
+}
+
+.img-placeholder svg {
+  opacity: 0.6;
+}
+
+.img-placeholder span {
+  font-size: 13px;
+  max-width: 260px;
+  line-height: 1.5;
+}

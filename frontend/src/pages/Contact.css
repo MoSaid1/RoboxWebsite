@@ -1,0 +1,189 @@
+.contact-container {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 56px;
+  padding: 64px 24px 120px;
+  align-items: start;
+}
+
+.contact-left .section-description {
+  margin-top: 16px;
+  max-width: 420px;
+}
+
+.contact-info-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-info-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.contact-info-item svg {
+  width: 42px;
+  height: 42px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(237, 28, 36, 0.12);
+  color: var(--accent);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.contact-info-item h4 {
+  font-size: 14px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.contact-info-item p,
+.contact-info-item a {
+  color: var(--text);
+  font-size: 15.5px;
+}
+
+.contact-info-item a:hover {
+  color: var(--accent);
+}
+
+.whatsapp-btn {
+  margin-top: 36px;
+  border-color: rgba(37, 211, 102, 0.4);
+  color: #25d366;
+}
+
+.whatsapp-btn:hover {
+  border-color: #25d366;
+  color: #25d366;
+  background: rgba(37, 211, 102, 0.08);
+}
+
+.contact-form {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.form-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.form-banner.success {
+  background: rgba(52, 211, 153, 0.1);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  color: var(--success);
+}
+
+.form-banner.error {
+  background: rgba(255, 92, 106, 0.1);
+  border: 1px solid rgba(255, 92, 106, 0.3);
+  color: var(--danger);
+}
+
+.form-row {
+  display: grid;
+  gap: 18px;
+}
+
+.form-row.two {
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  color: var(--text);
+  font-size: 14.5px;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.form-field textarea {
+  resize: vertical;
+}
+
+.field-error {
+  color: var(--danger);
+  font-size: 12.5px;
+}
+
+.product-checks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.product-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elevated);
+  font-size: 13.5px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.product-check input {
+  accent-color: var(--accent);
+}
+
+.product-check.checked {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(237, 28, 36, 0.08);
+}
+
+.submit-btn {
+  margin-top: 6px;
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+  .form-row.two {
+    grid-template-columns: 1fr;
+  }
+}

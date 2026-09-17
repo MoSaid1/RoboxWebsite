@@ -1,0 +1,56 @@
+.page-hero {
+  padding: 72px 0 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero .section-description {
+  margin-top: 16px;
+}
+
+.products-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 44px;
+}
+
+.products-tab {
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.products-tab:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.products-tab.active {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+@media (max-width: 980px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}

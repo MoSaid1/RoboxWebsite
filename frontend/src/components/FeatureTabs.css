@@ -1,0 +1,123 @@
+.feature-tabs {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.feature-tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: sticky;
+  top: 140px;
+}
+
+.feature-tab {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-left: 2px solid var(--border);
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.feature-tab:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.feature-tab.active {
+  border-left-color: var(--accent);
+  background: rgba(237, 28, 36, 0.06);
+}
+
+.feature-tab-index {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-faint);
+  margin-top: 2px;
+}
+
+.feature-tab.active .feature-tab-index {
+  color: var(--accent);
+}
+
+.feature-tab-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.feature-tab-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.feature-tab.active .feature-tab-title {
+  color: var(--text);
+}
+
+.feature-tab-summary {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  animation: fadeUp 0.3s ease both;
+}
+
+.feature-tabs-panel {
+  animation: fadeUp 0.4s ease both;
+}
+
+.feature-tabs-image {
+  margin-bottom: 28px;
+}
+
+.feature-tabs-image img {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.feature-tabs-body {
+  font-size: 17px;
+  color: var(--text-muted);
+  white-space: pre-line;
+  max-width: 620px;
+}
+
+@media (max-width: 900px) {
+  .feature-tabs {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .feature-tabs-list {
+    position: static;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 8px;
+    padding-bottom: 8px;
+  }
+  .feature-tab {
+    border-left: none;
+    border-bottom: 2px solid var(--border);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .feature-tab.active {
+    border-left-color: transparent;
+    border-bottom-color: var(--accent);
+  }
+  .feature-tab-summary {
+    display: none;
+  }
+  .feature-tabs-panel {
+    margin-top: 20px;
+  }
+}
