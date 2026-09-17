@@ -33,7 +33,7 @@ export const PRODUCT_STORIES = {
       hotspots: [
         { x: 50, y: 18, title: "Expressive Face Display", text: "10-inch LCD \"digital face\" reacts and welcomes guests with personality." },
         { x: 50, y: 48, title: "22-inch Interactive Signage", text: "Full-HD touchscreen for menus, maps, ads, and games." },
-        { x: 50, y: 85, title: "360° Sensor Fusion", text: "ROS-powered navigation reads the room and avoids obstacles in real time." },
+        { x: 50, y: 85, title: "Safety-Ring Sensor Array", text: "ROS with SLAM navigation reads the room and avoids obstacles in real time." },
       ],
     },
 
@@ -54,7 +54,7 @@ export const PRODUCT_STORIES = {
         text: "Fluent, natural conversation in English and Egyptian Arabic — tuned for busy, noisy spaces.",
         placeholder: { label: "Close-up — face display speaking", ratio: "16 / 9" },
       },
-      { size: "normal", icon: "FaRoute", title: "ROS-Powered Navigation", text: "Sensor-fused, obstacle-aware movement across almost any indoor surface." },
+      { size: "normal", icon: "FaRoute", title: "ROS + SLAM Navigation", text: "Safety-Ring sensor fusion and SLAM mapping for obstacle-aware movement across almost any indoor surface." },
       { size: "normal", icon: "FaClock", title: "9-Hour Runtime", text: "A full shift on one overnight charge." },
       {
         size: "wide",
@@ -64,7 +64,13 @@ export const PRODUCT_STORIES = {
         placeholder: { label: "Screen detail — touchscreen menu", ratio: "16 / 9" },
       },
       { size: "wide", icon: "FaGamepad", title: "Lead Capture & \"Spin & Win\"", text: "Turns casual encounters into captured leads, game plays, and instant photo-booth moments." },
-      { size: "normal", icon: "FaWifi", title: "Wi-Fi / LTE Ready", text: "Stays online and synced, with LTE as a backup connection." },
+      {
+        size: "wide",
+        icon: "FaWalking",
+        title: "Ambient Interaction",
+        text: "Continuously roams the floor — and the moment someone steps into its path, it pauses to engage, play, and capture leads, then resumes its route on its own.",
+      },
+      { size: "normal", icon: "FaWifi", title: "Wi-Fi / Bluetooth / LTE", text: "Stays online and synced, with Bluetooth pairing and LTE as a backup connection." },
     ],
 
     tabs: [
@@ -84,17 +90,17 @@ export const PRODUCT_STORIES = {
       },
       {
         title: "Moves With Purpose",
-        summary: "ROS-powered, safety-first navigation.",
+        summary: "ROS + SLAM, Safety-Ring first.",
         placeholder: { label: "Action shot — GuideBot navigating an open floor", ratio: "4 / 3" },
         text:
-          "Powered by ROS and a fusion of onboard sensors, GuideBot finds its way across marble, tile, low-pile carpet, cement, and wood without missing a step.\n\nIt threads through aisles as narrow as 80 cm at a controlled, safety-adjustable pace of up to 1.0 m/s — confident indoors, considerate around people.",
+          "Powered by ROS with SLAM navigation and a Safety-Ring sensor array, GuideBot maps a facility once and then continuously roams it — finding its way across marble, tile, low-pile carpet, cement, and wood without missing a step, and without needing to stop at fixed destination points.\n\nIt threads through aisles as narrow as 80 cm at a controlled, safety-adjustable pace of up to 1.0 m/s. And when someone steps directly into its path, it doesn't just avoid them — it pauses its route entirely to engage, play a game, or capture a lead, then quietly resumes roaming once the moment is over.",
       },
       {
         title: "Built for a Full Day's Work",
         summary: "9-hour shifts, one overnight charge.",
         placeholder: { label: "Detail shot — charging dock overnight", ratio: "4 / 3" },
         text:
-          "GuideBot runs a full shift on a single overnight charge — nine hours of continuous operation, plugged in after closing and ready before the doors open.\n\nAt 80 kg, it's substantial enough to feel stable on the floor, yet light enough to reposition without special equipment. Wi-Fi keeps it synced with your systems, and an optional LTE connection keeps it online even if the in-house network goes down.",
+          "GuideBot runs a full shift on a single overnight charge — nine hours of continuous operation, plugged in after closing and ready before the doors open.\n\nAt 80 kg, it's substantial enough to feel stable on the floor, yet light enough to reposition without special equipment. Wi-Fi and Bluetooth keep it synced with your systems, and an optional LTE connection keeps it online even if the in-house network goes down.",
       },
     ],
 
@@ -104,7 +110,7 @@ export const PRODUCT_STORIES = {
       rows: [
         { label: "Main Display", a: "22\" HD Touchscreen", b: "27\" Ultra-Wide HD Touchscreen" },
         { label: "Guest Escorting", a: "Interactive on-screen guidance", b: "Point-to-point Waypoint Navigation" },
-        { label: "Safety Sensors", a: "Multi-sensor fusion", b: "360° Safety-Ring sensor array" },
+        { label: "Safety Sensors", a: "Safety-Ring sensor array", b: "360° Safety-Ring sensor array" },
         { label: "Continuous Runtime", a: "9 hours", b: "9 hours" },
       ],
       bLabel: "GuideBot Pro",
