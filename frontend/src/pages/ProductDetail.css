@@ -256,6 +256,18 @@
   color: var(--text-faint);
 }
 
+.bento-section {
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.view360-section {
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
 .video-section {
   padding-top: 0;
 }

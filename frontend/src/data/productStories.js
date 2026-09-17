@@ -19,6 +19,52 @@ export const PRODUCT_STORIES = {
       ],
     },
 
+    view360: {
+      label: "360° rotation set — 24–36 sequential studio shots, 10° apart",
+      frames: [],
+    },
+
+    bento: [
+      {
+        size: "large",
+        icon: "FaComments",
+        title: "Bilingual AI Engine",
+        text: "Fluent, natural conversation in English and Egyptian Arabic — tuned for busy, noisy spaces.",
+        placeholder: { label: "Close-up — face display speaking", ratio: "16 / 9" },
+      },
+      {
+        size: "normal",
+        icon: "FaRoute",
+        title: "ROS-Powered Navigation",
+        text: "Sensor-fused, obstacle-aware movement across almost any indoor surface.",
+      },
+      {
+        size: "normal",
+        icon: "FaClock",
+        title: "9-Hour Runtime",
+        text: "A full shift on one overnight charge.",
+      },
+      {
+        size: "wide",
+        icon: "FaAudioDescription",
+        title: "22-inch Interactive Display",
+        text: "Menus, maps, ads, and games on a full-HD touchscreen — paired with a 10-inch expressive face.",
+        placeholder: { label: "Screen detail — touchscreen menu", ratio: "16 / 9" },
+      },
+      {
+        size: "wide",
+        icon: "FaGamepad",
+        title: "Lead Capture & \"Spin & Win\"",
+        text: "Turns casual encounters into captured leads, game plays, and instant photo-booth moments.",
+      },
+      {
+        size: "normal",
+        icon: "FaWifi",
+        title: "Wi-Fi / LTE Ready",
+        text: "Stays online and synced, with LTE as a backup connection.",
+      },
+    ],
+
     stats: [
       { value: 9, suffix: "h", label: "Continuous runtime" },
       { value: 22, suffix: "\"", label: "HD interactive touchscreen" },

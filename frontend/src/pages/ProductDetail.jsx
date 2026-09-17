@@ -14,6 +14,8 @@ import StatRow from "../components/StatCounter.jsx";
 import FeatureTabs from "../components/FeatureTabs.jsx";
 import ScrollProgress from "../components/ScrollProgress.jsx";
 import ScrollParallax from "../components/ScrollParallax.jsx";
+import Product360 from "../components/Product360.jsx";
+import BentoGrid from "../components/BentoGrid.jsx";
 import "./ProductDetail.css";
 
 export default function ProductDetail() {
@@ -75,6 +77,7 @@ export default function ProductDetail() {
           <div className="product-subnav-links">
             <a href="#overview">Overview</a>
             {hasStory && <a href="#story">Highlights</a>}
+            {story?.view360 && <a href="#view360">360°</a>}
             {story?.compare && <a href="#compare">Compare</a>}
             {product.specifications?.length > 0 && <a href="#specs">Tech Specs</a>}
           </div>
@@ -165,6 +168,18 @@ export default function ProductDetail() {
         </section>
       )}
 
+      {story?.bento && (
+        <section className="section bento-section">
+          <div className="container">
+            <Reveal className="section-head">
+              <span className="eyebrow">At a Glance</span>
+              <h2 className="section-title">Everything, In One Look</h2>
+            </Reveal>
+            <BentoGrid items={story.bento} />
+          </div>
+        </section>
+      )}
+
       {embed && (
         <Reveal as="section" className="section video-section">
           <div className="container">
@@ -191,6 +206,19 @@ export default function ProductDetail() {
               <FeatureTabs tabs={story.tabs} />
             </div>
           </section>
+          {story.view360 && (
+            <section className="section view360-section" id="view360">
+              <div className="container">
+                <Reveal className="section-head center">
+                  <span className="eyebrow">Take a Closer Look</span>
+                  <h2 className="section-title">See It From Every Angle</h2>
+                </Reveal>
+                <Reveal delay={80}>
+                  <Product360 frames={story.view360.frames} label={story.view360.label} />
+                </Reveal>
+              </div>
+            </section>
+          )}
           {story.compare && (
             <section className="section compare-section" id="compare">
               <div className="container">
