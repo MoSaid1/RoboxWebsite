@@ -6,12 +6,12 @@
 
 .scroll-story-sticky {
   position: sticky;
-  top: 50%;
-  transform: translateY(-50%);
-  height: fit-content;
+  top: 126px;
+  height: calc(100vh - 126px);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 24px;
 }
 
@@ -154,7 +154,7 @@
 
   .scroll-story-sticky {
     position: static;
-    transform: none;
+    height: auto;
   }
 
   .scroll-story-visual {
