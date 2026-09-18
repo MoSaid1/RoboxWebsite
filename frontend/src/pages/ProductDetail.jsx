@@ -166,9 +166,14 @@ export default function ProductDetail() {
 
       {story?.philosophy && (
         <section className="section philosophy-section">
-          <div className="container philosophy-wrap">
-            <ScrollParallax scaleFrom={0.92}>
+          <div className="container philosophy-inner">
+            <ScrollParallax scaleFrom={0.94} className="philosophy-text-col">
               <p className="philosophy-text">{story.philosophy}</p>
+            </ScrollParallax>
+            <ScrollParallax scaleFrom={0.9} className="philosophy-media-col">
+              <div className="philosophy-media">
+                <img src={product.thumbnail} alt={product.name} loading="lazy" />
+              </div>
             </ScrollParallax>
           </div>
         </section>
