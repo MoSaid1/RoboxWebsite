@@ -58,7 +58,8 @@ export default function StatRow({ stats }) {
 }
 
 function StatItem({ stat, active, index }) {
-  const value = useCountUp(stat.value, active);
+  const isNumeric = typeof stat.value === "number";
+  const value = useCountUp(isNumeric ? stat.value : 0, active && isNumeric);
   const decimals = stat.decimals || 0;
   return (
     <div className={`stat-item ${stat.icon ? "has-icon" : ""}`}>
@@ -72,9 +73,15 @@ function StatItem({ stat, active, index }) {
       )}
       <div className="stat-text">
         <div className="stat-value">
-          {stat.prefix}
-          {value.toFixed(decimals)}
-          {stat.suffix}
+          {isNumeric ? (
+            <>
+              {stat.prefix}
+              {value.toFixed(decimals)}
+              {stat.suffix}
+            </>
+          ) : (
+            stat.value
+          )}
         </div>
         <div className="stat-divider" />
         <div className="stat-label">{stat.label}</div>
