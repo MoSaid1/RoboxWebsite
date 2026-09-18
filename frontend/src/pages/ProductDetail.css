@@ -231,7 +231,8 @@
 
 /* Big centered description statement, Apple keynote style */
 .product-description-section {
-  padding-top: 0;
+  padding-top: 32px;
+  padding-bottom: 64px;
 }
 
 .product-description-wrap {
@@ -249,11 +250,17 @@
 
 .philosophy-section {
   padding-top: 0;
+  padding-bottom: 96px;
 }
 
 .philosophy-wrap {
-  max-width: 720px;
+  max-width: 780px;
   text-align: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 64px 72px 52px;
+  position: relative;
 }
 
 .philosophy-text {
@@ -263,18 +270,26 @@
   color: var(--text-muted);
   line-height: 1.55;
   position: relative;
-  padding-top: 28px;
 }
 
-.philosophy-text::before {
-  content: "";
+.philosophy-wrap::before {
+  content: "\201C";
   position: absolute;
-  top: 0;
+  top: 18px;
   left: 50%;
   transform: translateX(-50%);
-  width: 40px;
-  height: 2px;
-  background: var(--accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 90px;
+  font-style: normal;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.22;
+}
+
+@media (max-width: 620px) {
+  .philosophy-wrap {
+    padding: 48px 28px 36px;
+  }
 }
 
 .credibility-line {
