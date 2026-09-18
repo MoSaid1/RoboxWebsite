@@ -29,13 +29,12 @@ export default function ScrollStory({ eyebrow, title, steps }) {
   return (
     <section className="section scroll-story-section">
       <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">{eyebrow}</span>
-          <h2 className="section-title">{title}</h2>
-        </div>
-
         <div className="scroll-story-inner">
           <div className="scroll-story-sticky">
+            <div className="scroll-story-head">
+              <span className="eyebrow">{eyebrow}</span>
+              <h2 className="section-title">{title}</h2>
+            </div>
             <div className="scroll-story-visual">
               <div className="scroll-story-icon" key={active}>
                 <SpecIcon name={currentStep.icon} size={56} />
