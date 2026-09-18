@@ -54,6 +54,12 @@ export const PRODUCT_STORIES = {
         text: "Fluent, natural conversation in English and Egyptian Arabic — tuned for busy, noisy spaces.",
         placeholder: { label: "Close-up — face display speaking", ratio: "16 / 9" },
       },
+      {
+        size: "normal",
+        icon: "IconVoiceInteraction",
+        title: "Voice Interaction",
+        text: "Natural voice conversations through a noise-canceling microphone — ask, and GuideBot answers instantly.",
+      },
       { size: "normal", icon: "FaRoute", title: "ROS + SLAM Navigation", text: "Safety-Ring sensor fusion and SLAM mapping for obstacle-aware movement across almost any indoor surface." },
       { size: "normal", icon: "FaClock", title: "9-Hour Runtime", text: "A full shift on one overnight charge." },
       {

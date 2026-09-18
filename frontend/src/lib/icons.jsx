@@ -52,11 +52,13 @@ import {
 import ScreenIcon from "../components/icons/ScreenIcon.jsx";
 import LanguagesIcon from "../components/icons/LanguagesIcon.jsx";
 import RuntimeIcon from "../components/icons/RuntimeIcon.jsx";
+import VoiceInteractionIcon from "../components/icons/VoiceInteractionIcon.jsx";
 
 const ICONS = {
   IconScreen: ScreenIcon,
   IconLanguages: LanguagesIcon,
   IconRuntime: RuntimeIcon,
+  IconVoiceInteraction: VoiceInteractionIcon,
   FaAd,
   FaAudioDescription,
   FaBatteryFull,
