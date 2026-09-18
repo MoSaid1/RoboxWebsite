@@ -18,6 +18,7 @@ import ScrollParallax from "../components/ScrollParallax.jsx";
 import Product360 from "../components/Product360.jsx";
 import BentoGrid from "../components/BentoGrid.jsx";
 import ScrollStory from "../components/ScrollStory.jsx";
+import GifShowcase from "../components/GifShowcase.jsx";
 import "./ProductDetail.css";
 
 export default function ProductDetail() {
@@ -194,6 +195,16 @@ export default function ProductDetail() {
 
       {story?.journey && (
         <ScrollStory eyebrow={story.journey.eyebrow} title={story.journey.title} steps={story.journey.steps} />
+      )}
+
+      {story?.gifShowcase && (
+        <GifShowcase
+          eyebrow={story.gifShowcase.eyebrow}
+          title={story.gifShowcase.title}
+          text={story.gifShowcase.text}
+          gif={story.gifShowcase.gif}
+          gifLabel={story.gifShowcase.gifLabel}
+        />
       )}
 
       {embed && (

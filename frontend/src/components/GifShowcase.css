@@ -1,0 +1,84 @@
+.gif-showcase-section {
+  position: relative;
+  padding: 128px 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(237, 28, 36, 0.18), transparent 65%),
+    linear-gradient(180deg, #0a0a0c, #000);
+  overflow: hidden;
+}
+
+.gif-showcase-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gif-showcase-head {
+  text-align: center;
+  max-width: 620px;
+}
+
+.gif-showcase-head .eyebrow {
+  color: #ff4d55;
+}
+
+.gif-showcase-head .section-title {
+  color: #fff;
+}
+
+.gif-showcase-text {
+  margin-top: 16px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.gif-showcase-media {
+  width: 100%;
+  max-width: 720px;
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gif-showcase-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.gif-showcase-placeholder {
+  width: 100%;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius);
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+  padding: 40px;
+}
+
+.gif-showcase-placeholder span {
+  max-width: 320px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .gif-showcase-section {
+    padding: 72px 0;
+  }
+
+  .gif-showcase-media {
+    margin-top: 40px;
+  }
+
+  .gif-showcase-placeholder {
+    min-height: 280px;
+  }
+}
