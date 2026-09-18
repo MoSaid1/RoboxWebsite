@@ -1,13 +1,11 @@
 .gif-showcase-section {
-  position: relative;
   padding: 128px 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(237, 28, 36, 0.18), transparent 65%),
-    linear-gradient(180deg, #0a0a0c, #000);
-  overflow: hidden;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .gif-showcase-inner {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,28 +16,22 @@
   max-width: 620px;
 }
 
-.gif-showcase-head .eyebrow {
-  color: #ff4d55;
-}
-
-.gif-showcase-head .section-title {
-  color: #fff;
-}
-
 .gif-showcase-text {
   margin-top: 16px;
   font-size: 17px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--text-muted);
 }
 
 .gif-showcase-media {
   width: 100%;
-  max-width: 720px;
+  max-width: 640px;
   margin-top: 56px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 24px 48px var(--shadow-color);
 }
 
 .gif-showcase-img {
@@ -56,9 +48,9 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
-  border: 1.5px dashed rgba(255, 255, 255, 0.22);
+  border: 1.5px dashed var(--border-strong);
   border-radius: var(--radius);
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--text-faint);
   text-align: center;
   padding: 40px;
 }

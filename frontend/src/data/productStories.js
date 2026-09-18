@@ -105,7 +105,7 @@ export const PRODUCT_STORIES = {
       eyebrow: "Say Hello",
       title: "A Face That Feels Alive",
       text: "GuideBot's expressions react in real time — welcoming, alerting, and responding with genuine personality, not just a screen.",
-      gif: null,
+      gif: "/GuideBotFace.gif",
       gifLabel: "Transparent GIF placeholder — GuideBot's animated face, no background",
     },
 
