@@ -74,6 +74,33 @@ export const PRODUCT_STORIES = {
       { size: "normal", icon: "FaWifi", title: "Wi-Fi / Bluetooth / LTE", text: "Stays online and synced, with Bluetooth pairing and LTE as a backup connection." },
     ],
 
+    journey: {
+      eyebrow: "GuideBot In Action",
+      title: "A Typical Guest Interaction",
+      steps: [
+        {
+          icon: "IconVoiceInteraction",
+          title: "Greets",
+          text: "The moment a guest steps close, GuideBot's face lights up and it greets them by voice — fluently in English or Egyptian Arabic.",
+        },
+        {
+          icon: "IconScreen",
+          title: "Guides",
+          text: "A tap on the 22-inch touchscreen pulls up maps, menus, and directions, so GuideBot can lead the way in real time.",
+        },
+        {
+          icon: "FaGamepad",
+          title: "Engages",
+          text: "\"Spin & Win\" turns a passing glance into a captured lead, an instant photo, or a quick game — every conversation becomes an opportunity.",
+        },
+        {
+          icon: "IconRuntime",
+          title: "Returns to Work",
+          text: "Once the moment's over, GuideBot quietly resumes its patrol — ready for the next guest, for up to 9 hours straight.",
+        },
+      ],
+    },
+
     tabs: [
       {
         title: "A Host That Understands You",

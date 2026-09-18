@@ -17,6 +17,7 @@ import ScrollProgress from "../components/ScrollProgress.jsx";
 import ScrollParallax from "../components/ScrollParallax.jsx";
 import Product360 from "../components/Product360.jsx";
 import BentoGrid from "../components/BentoGrid.jsx";
+import ScrollStory from "../components/ScrollStory.jsx";
 import "./ProductDetail.css";
 
 export default function ProductDetail() {
@@ -189,6 +190,10 @@ export default function ProductDetail() {
             <BentoGrid items={story.bento} />
           </div>
         </section>
+      )}
+
+      {story?.journey && (
+        <ScrollStory eyebrow={story.journey.eyebrow} title={story.journey.title} steps={story.journey.steps} />
       )}
 
       {embed && (
