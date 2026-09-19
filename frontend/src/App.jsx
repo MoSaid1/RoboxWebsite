@@ -2,6 +2,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import MaintenanceGate from "./components/MaintenanceGate.jsx";
 import Home from "./pages/Home.jsx";
 import Products from "./pages/Products.jsx";
 import ProductDetail from "./pages/ProductDetail.jsx";
@@ -21,7 +22,7 @@ function ScrollToTop() {
 
 export default function App() {
   return (
-    <>
+    <MaintenanceGate>
       <ScrollToTop />
       <Navbar />
       <main>
@@ -37,6 +38,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-    </>
+    </MaintenanceGate>
   );
 }

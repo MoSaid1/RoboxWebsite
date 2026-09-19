@@ -29,3 +29,10 @@
   max-width: 260px;
   line-height: 1.5;
 }
+
+.img-real {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius);
+}

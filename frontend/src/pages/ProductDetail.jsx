@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import { FaArrowRight, FaFilePdf, FaChevronLeft } from "react-icons/fa";
+import { FaArrowRight, FaFilePdf, FaChevronLeft, FaChevronRight, FaExpand } from "react-icons/fa";
 import Seo from "../components/Seo.jsx";
 import Reveal from "../components/Reveal.jsx";
 import { Loading, ErrorMessage } from "../components/StateMessage.jsx";
@@ -83,8 +84,9 @@ export default function ProductDetail() {
             <a href="#overview">Overview</a>
             {hasStory && <a href="#story">Highlights</a>}
             {story?.view360 && <a href="#view360">360°</a>}
-            {story?.compare && <a href="#compare">Compare</a>}
             {product.specifications?.length > 0 && <a href="#specs">Tech Specs</a>}
+            {product.photos?.length > 0 && <a href="#gallery">Gallery</a>}
+            {story?.compare && <a href="#compare">Compare</a>}
           </div>
           <Link to={`/contact?product=${product.slug}`} className="btn btn-primary btn-sm product-subnav-cta">
             Request a Quote
@@ -107,6 +109,11 @@ export default function ProductDetail() {
             {story?.hook && (
               <Reveal delay={190}>
                 <p className="product-hook">{story.hook}</p>
+              </Reveal>
+            )}
+            {product.description && (
+              <Reveal delay={220}>
+                <p className="product-hero-description">{product.description}</p>
               </Reveal>
             )}
             {!story?.videoIntro && (
@@ -156,29 +163,6 @@ export default function ProductDetail() {
         <Reveal as="section" className="section stats-section">
           <StatRow stats={story.stats} />
         </Reveal>
-      )}
-
-      <section className="section product-description-section">
-        <div className="container product-description-wrap">
-          <ScrollParallax scaleFrom={0.94}>
-            <p className="product-description">{product.description}</p>
-          </ScrollParallax>
-        </div>
-      </section>
-
-      {story?.philosophy && (
-        <section className="section philosophy-section">
-          <div className="container philosophy-inner">
-            <ScrollParallax scaleFrom={0.94} className="philosophy-text-col">
-              <p className="philosophy-text">{story.philosophy}</p>
-            </ScrollParallax>
-            <ScrollParallax scaleFrom={0.9} className="philosophy-media-col">
-              <div className="philosophy-media">
-                <img src={product.thumbnail} alt={product.name} loading="lazy" />
-              </div>
-            </ScrollParallax>
-          </div>
-        </section>
       )}
 
       {story?.bento && (
@@ -246,13 +230,6 @@ export default function ProductDetail() {
               </div>
             </section>
           )}
-          {story.compare && (
-            <section className="section compare-section" id="compare">
-              <div className="container">
-                <CompareTable compare={story.compare} />
-              </div>
-            </section>
-          )}
           {story.useCases && (
             <section className="use-cases-section">
               <UseCasesChapter useCases={story.useCases} />
@@ -295,6 +272,28 @@ export default function ProductDetail() {
         </section>
       )}
 
+      {product.photos?.length > 0 && (
+        <section className="section gallery-section" id="gallery">
+          <div className="container">
+            <Reveal className="section-head center">
+              <span className="eyebrow">Gallery</span>
+              <h2 className="section-title">See It Up Close</h2>
+            </Reveal>
+            <Reveal delay={80}>
+              <ProductGallery photos={product.photos} name={product.name} />
+            </Reveal>
+          </div>
+        </section>
+      )}
+
+      {story?.compare && (
+        <section className="section compare-section" id="compare">
+          <div className="container">
+            <CompareTable compare={story.compare} />
+          </div>
+        </section>
+      )}
+
       {(product.cta_title || product.cta_text) && (
         <section className="section cta-section" id="get">
           <Reveal as="div" className="container cta-box">
@@ -312,6 +311,113 @@ export default function ProductDetail() {
           </Reveal>
         </section>
       )}
+    </div>
+  );
+}
+
+function ProductGallery({ photos, name }) {
+  const [active, setActive] = useState(0);
+  const [lightbox, setLightbox] = useState(false);
+
+  const goPrev = () => setActive((i) => (i - 1 + photos.length) % photos.length);
+  const goNext = () => setActive((i) => (i + 1) % photos.length);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setLightbox(false);
+      if (e.key === "ArrowLeft") goPrev();
+      if (e.key === "ArrowRight") goNext();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox]);
+
+  return (
+    <div className="pro-gallery">
+      <div className="pro-gallery-main" onClick={() => setLightbox(true)}>
+        <img src={photos[active]} alt={`${name} ${active + 1}`} />
+        <div className="pro-gallery-expand">
+          <FaExpand size={13} /> View full size
+        </div>
+        {photos.length > 1 && (
+          <>
+            <button
+              className="pro-gallery-arrow prev"
+              onClick={(e) => {
+                e.stopPropagation();
+                goPrev();
+              }}
+              aria-label="Previous photo"
+            >
+              <FaChevronLeft size={14} />
+            </button>
+            <button
+              className="pro-gallery-arrow next"
+              onClick={(e) => {
+                e.stopPropagation();
+                goNext();
+              }}
+              aria-label="Next photo"
+            >
+              <FaChevronRight size={14} />
+            </button>
+            <span className="pro-gallery-count">
+              {active + 1} / {photos.length}
+            </span>
+          </>
+        )}
+      </div>
+
+      {photos.length > 1 && (
+        <div className="pro-gallery-thumbs">
+          {photos.map((src, i) => (
+            <button
+              key={src}
+              className={`pro-gallery-thumb ${i === active ? "active" : ""}`}
+              onClick={() => setActive(i)}
+              aria-label={`View photo ${i + 1}`}
+            >
+              <img src={src} alt="" />
+            </button>
+          ))}
+        </div>
+      )}
+
+      {lightbox &&
+        createPortal(
+          <div className="pro-gallery-lightbox" onClick={() => setLightbox(false)}>
+            <button className="pro-lightbox-close" onClick={() => setLightbox(false)} aria-label="Close">
+              ×
+            </button>
+            <img src={photos[active]} alt={`${name} ${active + 1}`} onClick={(e) => e.stopPropagation()} />
+            {photos.length > 1 && (
+              <>
+                <button
+                  className="pro-lightbox-arrow prev"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goPrev();
+                  }}
+                  aria-label="Previous photo"
+                >
+                  <FaChevronLeft size={18} />
+                </button>
+                <button
+                  className="pro-lightbox-arrow next"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    goNext();
+                  }}
+                  aria-label="Next photo"
+                >
+                  <FaChevronRight size={18} />
+                </button>
+              </>
+            )}
+          </div>,
+          document.body
+        )}
     </div>
   );
 }
@@ -397,12 +503,19 @@ function UseCasesChapter({ useCases }) {
 
       <div className="use-cases-grid">
         {useCases.items.map((item, i) => (
-          <Reveal key={item.title} delay={i * 70} className="use-case-card">
-            <div className="use-case-icon">
-              <SpecIcon name={item.icon} size={18} />
+          <Reveal key={item.title} delay={i * 70} className={`use-case-card ${item.placeholder ? "has-media" : ""}`}>
+            {item.placeholder && (
+              <div className="use-case-media">
+                <ImagePlaceholder {...item.placeholder} ratio={item.placeholder.ratio || "16 / 9"} />
+              </div>
+            )}
+            <div className="use-case-body">
+              <div className="use-case-icon">
+                <SpecIcon name={item.icon} size={18} />
+              </div>
+              <h4>{item.title}</h4>
+              <p>{item.text}</p>
             </div>
-            <h4>{item.title}</h4>
-            <p>{item.text}</p>
           </Reveal>
         ))}
       </div>
